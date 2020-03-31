@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import TvShows from '../components/TvShows'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   const [shows, setShows] = useState([])
@@ -43,7 +42,11 @@ const HomePage = () => {
         <h2>Top Rated Tv Shows</h2>
         <ul>
           {shows.map((show) => {
-            return <li>{show.name}</li>
+            return (
+              <li>
+                <Link to={`/tv/${show.id}`}>{show.name}</Link>
+              </li>
+            )
           })}
         </ul>
       </section>
