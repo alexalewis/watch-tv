@@ -8,6 +8,7 @@ const App = () => {
   return (
     <Router>
       <header>
+        <h1>TV Guide</h1>
         <nav>
           <ul>
             <li>
