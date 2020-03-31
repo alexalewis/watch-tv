@@ -13,11 +13,15 @@ const HomePage = () => {
       .then((response) => response.json())
       .then((apiData) => {
         console.log(apiData)
+
+        const newShows = apiData.results
+        setShows(newShows)
+
+        // gets index of random show
+        const newRandomShowIndex = Math.floor(Math.random() * newShows.length)
+        setRandomShowIndex(newRandomShowIndex)
       })
   }, [])
-
-  // gets index of random show
-  const randomShowIndex = Math.floor(Math.random() * shows.length)
 
   //displays random show
   const randomShow = shows[randomShowIndex]
@@ -37,7 +41,11 @@ const HomePage = () => {
 
       <section>
         <h2>Top Rated Tv Shows</h2>
-        <ul></ul>
+        <ul>
+          {shows.map((show) => {
+            return <li>{show.name}</li>
+          })}
+        </ul>
       </section>
     </>
   )
